@@ -111,9 +111,12 @@ $ curl --get http://skinny.dev/stats/a2b3
 
 ## getting started
 
-to get started, `fork` this repository, then `clone` onto your local machine.
-create a Flask project in this directory, and define the routes; fill in the
-logic behind the routes, then the data storage via a connection to PostgreSQL.
+to get started, `fork` this repository, then `clone` onto your local machine. a
+Flask project has already been created (very bare bones!). define the routes;
+fill in the logic behind the routes, then the data storage via a connection to
+PostgreSQL.
+
+run this project with `python skinny.py`
 
 check in your work regularly, and let me (@bvandgrift) know if you have any
 questions or need any help.
