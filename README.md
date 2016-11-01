@@ -21,7 +21,7 @@ The data model for the service should look (something) like this:
 the `slug` object (and `slugs` table) :
 - `url`: a unique string/text field containing a uri : "http://a.long.company.com/this/is/some/deep/nesting"
 - `slug`: a unique string/text field containing a short string to be used as the slug : "1ab2"
-- id: an auto-incrementing integer containing the slug's unique identifier : 26
+- `id`: an auto-incrementing integer containing the slug's unique identifier : 26
 
 the `lookup` object (and `lookups` table) should have (something like) the following:
 - `slug_id`: an integer field containing the id field of a slug object : 26
@@ -45,12 +45,12 @@ that url.
 ```curl
 $ curl -v --data "url=http://some.really.long.url.com/this/is/a/path/to/a/resource" http://skinny.dev/
 
-&gt; POST / HTTP/1.1
-&gt; Host: skinny.dev
-&gt; User-Agent: curl/7.49.1
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 201 Created
+> POST / HTTP/1.1
+> Host: skinny.dev
+> User-Agent: curl/7.49.1
+> Accept: */*
+>
+< HTTP/1.1 201 Created
 { "location": "http://skinny.dev/1b325ac" }
 
 ```
@@ -71,13 +71,13 @@ service with the slug in the url.
 ```curl
 $ curl --get http://skinny.dev/a2b3
 
-&gt; GET /a2b3 HTTP/1.1
-&gt; Host: skinny.dev
-&gt; Location: http://some.really.long.url.com/this/is/a/path/to/a/resource
-&gt; User-Agent: curl/7.49.1
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 403 Moved Permanently
+> GET /a2b3 HTTP/1.1
+> Host: skinny.dev
+> Location: http://some.really.long.url.com/this/is/a/path/to/a/resource
+> User-Agent: curl/7.49.1
+> Accept: */*
+>
+< HTTP/1.1 403 Moved Permanently
 ```
 
 1. if the slug is found, it responds with a status code of 301, and the full url
@@ -94,13 +94,13 @@ the user should be able to get stats on the slug, via a GET request to
 ```curl
 $ curl --get http://skinny.dev/stats/a2b3
 
-&gt; GET /stats/a2b3 HTTP/1.1
-&gt; Host: skinny.dev
-&gt; Location: http://some.really.long.url.com/this/is/a/path/to/a/resource
-&gt; User-Agent: curl/7.49.1
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
+> GET /stats/a2b3 HTTP/1.1
+> Host: skinny.dev
+> Location: http://some.really.long.url.com/this/is/a/path/to/a/resource
+> User-Agent: curl/7.49.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
 
 { "lookups": 25 }
 ```
