@@ -8,7 +8,6 @@ slug_store = {}
 lookup_store = {}
 hash_length = 5
 
-
 @skinny.route("/", methods = ['GET', 'POST'])
 def default_route():
     if request.method == 'POST':
