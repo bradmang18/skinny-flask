@@ -1,11 +1,18 @@
 from flask import Flask
-import json
 
 skinny = Flask(__name__)
 
-@skinny.route("/", methods = ['GET'])
-def default_route():
-    return json.dumps({"message": "welcome!"})
+@skinny.route('/', methods=['POST'])
+def submit():
+    return
+
+@skinny.route('/<slug>', methods=['GET'])
+def lookup(slug):
+    return
+
+@skinny.route('/stats/<slug>', methods=['GET'])
+def stats(slug):
+    return
 
 if __name__ == "__main__":
     skinny.run()
